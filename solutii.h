@@ -34,4 +34,45 @@ void solutied()
     afisareMatrice(v,n,m);
 }
 
+ void solutiej()
+ {
+     int v[100][100] , n,m;
+     int nr=0;
+     int poz=-1;
+     citireMatrice(v,n,m);
+
+     for(int j=0; j<m && poz==-1 ; j++)
+    {
+        int exista=0;
+         for(int i =0; i<n;i++)
+         {
+             if(isNumarPp(v[i][j]==1))
+             {
+                 exista=1;
+             }
+         }
+
+     if(exista==1)
+     {
+         nr++;
+         if(nr==2)
+         {
+             poz=j;
+         }
+     }
+    }
+     if(poz==-1)
+     {
+         cout<<"Nu exista";
+     }else
+     {
+         inserareColoana(v,n,m,poz+1);
+         for(int i=0;i<n;i++)
+         {
+             v[i][poz+1]=v[i][poz];
+         }
+         rastoarnaColoana(v,n,m,poz+1);
+         afisareMatrice(v,n,m);
+     }
+ }
 #endif // SOLUTII_H_INCLUDED

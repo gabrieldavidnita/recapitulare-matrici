@@ -2,5 +2,6 @@
 #include "solutii.h"
 int main()
 {
-  solutied();
+  int ceva=isNumarPp(23);
+  cout<<ceva;
 }

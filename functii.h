@@ -2,6 +2,7 @@
 #define FUNCTII_H_INCLUDED
 #include <iostream>
 #include <fstream>
+#include <cmath>
 using namespace std;
 
 void citireMatrice(int v[100][100], int&n, int&m)
@@ -72,5 +73,47 @@ bool treiCifre(int n)
         }
     }
     return ok;
+}
+
+int oglindit(int n)
+{
+    int ogl=0;
+    while(n!=0)
+    {
+        int uc=n%10;
+        ogl=ogl*10+uc;
+        n=n/10;
+    }
+    return ogl;
+}
+
+void inserareColoana(int v[100][100],int n , int&m , int poz)
+{
+    for(int j=m-1;j>=poz;j--)
+    {
+        for(int i=0;i<n;i++)
+        {
+            v[i][j+1]=v[i][j];
+        }
+    }
+    m++;
+}
+
+bool isNumarPp(int n)
+{
+    int ok=0;
+    int r=sqrt(n);
+    if(r*r==n)
+    {
+        ok=1;
+    }
+    return ok;
+}
+void rastoarnaColoana(int v[100][100], int n ,int&m, int col)
+{
+    for(int i=0;i<n; i++)
+    {
+        v[i][col]=oglindit(v[i][col]);
+    }
 }
 #endif // FUNCTII_H_INCLUDED
