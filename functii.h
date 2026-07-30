@@ -226,8 +226,18 @@ bool isNumarPrim(int n )
     return ok;
 }
 
-
-
+int numerePareLinie(int v[100][100],int m, int linie)
+{
+    int nr=0;
+    for(int j=0;j<m;j++)
+    {
+        if(v[linie][j]%2==0)
+        {
+            nr++;
+        }
+    }
+    return nr;
+}
 
 
 
