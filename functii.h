@@ -210,6 +210,21 @@ void stergeExact3CifreEgale(int a[100][100], int &n, int &m){
 
 }
 
+bool isNumarPrim(int n )
+{
+     if(n==1||n==0){
+        return false;
+     }
+    int ok=1;
+    for(int d=2;d*d<=n;d++)
+    {
+        if(n%d==0)
+        {
+            ok=0;
+        }
+    }
+    return ok;
+}
 
 
 

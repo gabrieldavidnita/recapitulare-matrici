@@ -89,4 +89,37 @@ void solutiep()
     afisareMatrice(v,n,m);
 }
 
+void solutiee()
+{
+    int v[100][100],n,m;
+    citireMatrice(v,n,m);
+    int ct=0;
+    int linie=-1;
+    int coloana=-1;
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<m; j++)
+        {
+            if(isNumarPrim(v[i][j])==1)
+            {
+                ct++;
+                if(ct==2)
+                {
+                    linie=i;
+                    coloana=j;
+                }
+            }
+        }
+    }
+    if(ct<2)
+    {
+        cout<<"Nu exista";
+    }
+    else
+    {
+        stergereLinie(v,n,m,linie);
+        stergereColoana(v,n,m,coloana);
+    }
+    afisareMatrice(v,n,m);
+}
 #endif // SOLUTII_H_INCLUDED
