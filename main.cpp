@@ -2,6 +2,7 @@
 #include "solutii.h"
 int main()
 {
-solutiep();
+int n ;
+cout<<isNumarPp(25);
 
 }

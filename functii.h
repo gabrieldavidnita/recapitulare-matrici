@@ -101,13 +101,7 @@ void inserareColoana(int v[100][100],int n , int&m , int poz)
 
 bool isNumarPp(int n)
 {
-    int ok=0;
-    int r=sqrt(n);
-    if(r*r==n)
-    {
-        ok=1;
-    }
-    return ok;
+    return  n!=0&&sqrt(n)==(int)sqrt(n);
 }
 void rastoarnaColoana(int v[100][100], int n ,int&m, int col)
 {
@@ -165,4 +159,75 @@ void sortareCrescLinie(int v[100][100],int m , int linie)
         }
     }
 }
+
+//5 4
+//0 1 2 3
+
+//1 2 3 4        0
+//1 22 3 4       1
+//1 2 444 7      2
+//7 5 4 3        3
+//6 67 8 9       4
+
+
+//i  i<n  j  j<m    if(treiCifre(a[i][j]))      delL[i]     delC[j]   i   j
+//0  0<5  0  0<4             nu                                           1
+//        1  1<4             nu
+//        2  2<4
+//        3  3<4
+//        4  4<4
+//
+//
+//3 3<5  0  0<4             nu
+//       1  1<4             nu
+//       2  2<4             da                    true        true
+void stergeExact3CifreEgale(int a[100][100], int &n, int &m){
+
+    bool delL[100] = {false};
+    bool delC[100] = {false};
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            if(treiCifre(a[i][j]))
+            {
+                delL[i] = true;
+                delC[j] = true;
+            }
+        }
+    }
+    for(int i=0;i<n;i++){
+        if(delC[i]){
+            stergereLinie(a,n,m,i);
+        }
+    }
+
+    for(int j=0;j<m;j++)
+    {
+        if(delL[j])
+        {
+            stergereColoana(a,n,m,j);
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #endif // FUNCTII_H_INCLUDED

@@ -17,20 +17,7 @@ void solutied()
 {
     int v[100][100], n,m;
     citireMatrice(v,n,m);
-    for(int i =0; i<n;i++)
-    {
-        for(int j=0;j<m;j++)
-        {
-            if(treiCifre(v[i][j])==1)
-            {
-                stergereLinie(v,n,m,i);
-                stergereColoana(v,n,m,j);
-                i--;
-                j--;
-            }
-
-        }
-    }
+    stergeExact3CifreEgale(v,n,m);
     afisareMatrice(v,n,m);
 }
 
@@ -46,7 +33,7 @@ void solutied()
         int exista=0;
          for(int i =0; i<n;i++)
          {
-             if(isNumarPp(v[i][j]==1))
+             if(isNumarPp(v[i][j])==1)
              {
                  exista=1;
              }
