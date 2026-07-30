@@ -74,5 +74,32 @@ void solutied()
          rastoarnaColoana(v,n,m,poz+1);
          afisareMatrice(v,n,m);
      }
+
+
  }
+
+
+void solutiep()
+{
+    int v[100][100],n,m;
+    citireMatrice(v,n,m);
+    int poz=-1;
+    for(int i=0; i<n-1; i++)
+    {
+        if(isLinieCrescatoare(v,m,i)==1)
+        {
+           poz=i;
+        }
+    }
+    if(poz!=-1)
+    {
+        interschimbareLinii(v,m,poz,poz+1);
+    }else
+    {
+        sortareCrescLinie(v,m,0);
+        interschimbareLinii(v,m,0,n-1);
+    }
+    afisareMatrice(v,n,m);
+}
+
 #endif // SOLUTII_H_INCLUDED

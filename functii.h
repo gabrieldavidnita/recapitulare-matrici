@@ -116,4 +116,53 @@ void rastoarnaColoana(int v[100][100], int n ,int&m, int col)
         v[i][col]=oglindit(v[i][col]);
     }
 }
+//n=5 m=4  linie=1
+//0 1 2 3
+
+//1 2 3 4     0
+//2 2 3 4     1
+//1 2 4 7     2
+//7 5 4 3     3
+//6 7 8 9     4
+
+//j  j<m-1     if(v[linie][j]>v[linie][j+1])     ok
+//0  0<3                    nu
+bool isLinieCrescatoare(int v[100][100], int m, int linie)
+{
+    int ok=1;
+    for(int j=0;j<m-1;j++)
+    {
+        if(v[linie][j]>v[linie][j+1])
+        {
+            ok=0;
+        }
+    }
+    return ok;
+}
+
+void interschimbareLinii(int v[100][100], int m , int linie1, int linie2)
+{
+    for(int j=0;j<m;j++)
+    {
+        int aux=v[linie1][j];
+        v[linie1][j]=v[linie2][j];
+        v[linie2][j]=aux;
+    }
+}
+
+void sortareCrescLinie(int v[100][100],int m , int linie)
+{
+    for(int i=0;i<m-1;i++)
+    {
+        for(int j=0;j<m-i-1;j++)
+        {
+            if(v[linie][j]>v[linie][j+1])
+            {
+                int aux=v[linie][j];
+                v[linie][j]=v[linie][j+1];
+                v[linie][j+1]=aux;
+            }
+        }
+    }
+}
 #endif // FUNCTII_H_INCLUDED
