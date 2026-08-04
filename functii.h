@@ -30,7 +30,17 @@ void afisareMatrice(int v[100][100],int n, int m )
         cout<<endl;
     }
 }
-
+void inserareLinie(int a[100][100],int &n,int m,int poz)
+{
+    for(int i=n;i>poz;i--)
+    {
+        for(int j=0;j<m;j++)
+        {
+            a[i][j]=a[i-1][j];
+        }
+    }
+    n++;
+}
 void stergereLinie(int a[100][100], int&n,int m , int linie)
 {
     for(int i=linie; i<n-1;i++)
@@ -239,13 +249,196 @@ int numerePareLinie(int v[100][100],int m, int linie)
     return nr;
 }
 
+int aparitiiCifraNumar(int x,int k)
+{
+    int nr=0;
 
+    if(x==0&&k==0)
+    {
+        return 1;
+    }
+    while(x>0)
+    {
+        if(x%10==k)
+        {
+            nr++;
+        }
+        x=x/10;
+    }
+    return nr;
+}
 
+int aparitiiCifraLinie(int a[100][100],int m,int linie,int k)
+{
+    int nr=0;
+    for(int j=0;j<m;j++)
+    {
+        nr=nr+aparitiiCifraNumar(a[linie][j],k);
+    }
+    return nr;
+}
+int frecventaElement(int a[100][100],int n,int m,int x)
+{
+    int nr=0;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            if(a[i][j]==x)
+            {
+                nr++;
+            }
+        }
+    }
+    return nr;
+}
 
+int linieCrescatoare(int a[100][100],int m,int linie)
+{
+    for(int j=0;j<m-1;j++)
+    {
+        if(a[linie][j]>a[linie][j+1])
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
 
+int linieDescrescatoare(int a[100][100],int m,int linie)
+{
+    for(int j=0;j<m-1;j++)
+    {
+        if(a[linie][j]<a[linie][j+1])
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
 
+int numarPareLinie(int a[100][100],int m,int linie)
+{
+    int nr=0;
 
+    for(int j=0;j<m;j++)
+    {
+        if(a[linie][j]%2==0)
+        {
+            nr++;
+        }
+    }
 
+    return nr;
+}
+
+int cifraMaximaMatrice(int a[100][100],int n,int m)
+{
+    int cifraMaxima=0;
+
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            int x=a[i][j];
+
+            while(x>0)
+            {
+                if(x%10>cifraMaxima)
+                {
+                    cifraMaxima=x%10;
+                }
+
+                x=x/10;
+            }
+        }
+    }
+
+    return cifraMaxima;
+}
+
+int cifraMinimaMatrice(int a[100][100],int n,int m)
+{
+    int cifraMinima=9;
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            int x=a[i][j];
+            while(x>0)
+            {
+                if(x%10<cifraMinima)
+                {
+                    cifraMinima=x%10;
+                }
+                x=x/10;
+            }
+        }
+    }
+    return cifraMinima;
+}
+
+int aparitiiCifraColoana(int a[100][100],int n,int coloana,int cifra)
+{
+    int nr=0;
+
+    for(int i=0;i<n;i++)
+    {
+        nr=nr+aparitiiCifraNumar(a[i][coloana],cifra);
+    }
+
+    return nr;
+}
+
+int toateCifrele(int x)
+{
+    int f[10]={0};
+
+    while(x>0)
+    {
+        f[x%10]=1;
+        x=x/10;
+    }
+
+    for(int c=0;c<=9;c++)
+    {
+        if(f[c]==0)
+        {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+int cifraControl(int x)
+{
+    while(x>9)
+    {
+        int s=0;
+
+        while(x>0)
+        {
+            s=s+x%10;
+            x=x/10;
+        }
+
+        x=s;
+    }
+    return x;
+}
+
+int coloanaValidaM(int a[100][100],int n,int coloana)
+{
+    for(int i=0;i<n;i++)
+    {
+        if(toateCifrele(a[i][coloana])==0)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
 
 
 

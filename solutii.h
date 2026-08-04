@@ -122,4 +122,199 @@ void solutiee()
     }
     afisareMatrice(v,n,m);
 }
+
+
+void solutief()
+{
+    int a[100][100],n,m,k;
+    int poz=0;
+    citireMatrice(a,n,m);
+    int minim=aparitiiCifraLinie(a,m,0,k);
+    for(int i=1;i<n;i++)
+    {
+        int nr=aparitiiCifraLinie(a,m,i,k);
+        if(nr<minim)
+        {
+            minim=nr;
+            poz=i;
+        }
+    }
+    stergereLinie(a,n,m,poz);
+    afisareMatrice(a,n,m);
+}
+
+void solutieg()
+{
+    int a[100][100],n,m;
+    int linie=0;
+    int coloana=0;
+    int frecventaMaxima;
+    citireMatrice(a,n,m);
+    frecventaMaxima=frecventaElement(a,n,m,a[0][0]);
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            int f=frecventaElement(a,n,m,a[i][j]);
+            if(f>frecventaMaxima)
+            {
+                frecventaMaxima=f;
+                linie=i;
+                coloana=j;
+            }
+        }
+    }
+    stergereLinie(a,n,m,linie);
+    stergereColoana(a,n,m,coloana);
+    afisareMatrice(a,n,m);
+}
+
+void solutieh()
+{
+    int a[100][100],n,m;
+    citireMatrice(a,n,m);
+    int i=0;
+    while(i<n)
+    {
+        if(linieCrescatoare(a,m,i)==0&&
+                linieDescrescatoare(a,m,i)==0)
+        {
+            stergereLinie(a,n,m,i);
+        }
+        else
+        {
+            i++;
+        }
+    }
+    afisareMatrice(a,n,m);
+}
+
+void solutiek()
+{
+    int a[100][100],n,m;
+    int poz=0;
+    int maxim;
+    citireMatrice(a,n,m);
+    maxim=numarPareLinie(a,m,0);
+    for(int i=1;i<n;i++)
+    {
+        int nr=numarPareLinie(a,m,i);
+
+        if(nr>maxim)
+        {
+            maxim=nr;
+            poz=i;
+        }
+    }
+    inserareLinie(a,n,m,poz+1);
+    for(int j=0;j<m;j++)
+    {
+        a[poz+1][j]=2*a[poz][j];
+    }
+    afisareMatrice(a,n,m);
+}
+void solutieL()
+{
+    int a[100][100],n,m;
+    citireMatrice(a,n,m);
+    int cifraMaxima=cifraMaximaMatrice(a,n,m);
+    int cifraMinima=cifraMinimaMatrice(a,n,m);
+    int poz=0;
+    int maxim=aparitiiCifraColoana(a,n,0,cifraMaxima);
+    for(int j=1;j<m;j++)
+    {
+        int nr=aparitiiCifraColoana(a,n,j,cifraMaxima);
+        if(nr>=maxim)
+        {
+            maxim=nr;
+            poz=j;
+        }
+    }
+    inserareColoana(a,n,m,poz);
+    for(int i=0;i<n;i++)
+    {
+        a[i][poz]=cifraMinima;
+    }
+    afisareMatrice(a,n,m);
+}
+
+void solutieM()
+{
+    int a[100][100],n,m;
+    citireMatrice(a,n,m);
+    int j=0;
+    while(j<m)
+    {
+        if(coloanaValidaM(a,n,j)==1)
+        {
+            inserareColoana(a,n,m,j+1);
+
+            for(int i=0;i<n;i++)
+            {
+                a[i][j+1]=cifraControl(a[i][j]);
+            }
+
+            j=j+2;
+        }
+        else
+        {
+            j++;
+        }
+    }
+    afisareMatrice(a,n,m);
+}
+
+void solutieq()
+{
+    int a[100][100],n,m;
+    int minim,maxim;
+    int linieMinim=0;
+    int linieMaxim=0;
+    citireMatrice(a,n,m);
+    minim=a[0][0];
+    maxim=a[0][0];
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<m;j++)
+        {
+            if(a[i][j]<minim)
+            {
+                minim=a[i][j];
+                linieMinim=i;
+            }
+
+            if(a[i][j]>maxim)
+            {
+                maxim=a[i][j];
+                linieMaxim=i;
+            }
+        }
+    }
+    if(linieMinim==linieMaxim)
+    {
+        cout<<"Nu putem interschimba!";
+    }
+    else
+    {
+        interschimbareLinii(a,m,linieMinim,linieMaxim);
+        afisareMatrice(a,n,m);
+    }
+}
+
+void solutieR()
+{
+    int a[100][100],n,m;
+    citireMatrice(a,n,m);
+    for(int i=0;i<n-1;i++)
+    {
+        for(int j=i+1;j<n;j++)
+        {
+            if(a[i][0]>a[j][0])
+            {
+                interschimbareLinii(a,m,i,j);
+            }
+        }
+    }
+    afisareMatrice(a,n,m);
+}
 #endif // SOLUTII_H_INCLUDED
