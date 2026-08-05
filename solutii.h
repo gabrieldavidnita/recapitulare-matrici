@@ -15,19 +15,20 @@
 // 0  0<4    0    0<3
 void solutied()
 {
-    int v[100][100], n,m;
-    citireMatrice(v,n,m);
+    int v[100][100]={{222,32,12},{12,13,14},{22,12,64},{32,25,64}};
+    int n=4;
+    int m=3;
     stergeExact3CifreEgale(v,n,m);
     afisareMatrice(v,n,m);
 }
 
  void solutiej()
  {
-     int v[100][100] , n,m;
+     int v[100][100]={{25,32,12},{64,81,14},{16,12,64},{32,25,64}};
+     int n=4;
+     int m=3;
      int nr=0;
-     int poz=-1;
-     citireMatrice(v,n,m);
-
+     int poz=-1 ;
      for(int j=0; j<m && poz==-1 ; j++)
     {
         int exista=0;
@@ -64,12 +65,17 @@ void solutied()
 
 
  }
-
+// 12,32,12
+// 12,13,14
+// 22,12,64
+// 32,25,64
 
 void solutiep()
 {
-    int v[100][100],n,m;
-    citireMatrice(v,n,m);
+    int v[100][100]={{12,32,12},{12,13,14},{22,12,64},{32,25,64}};
+    int n=4;
+    int m=3;
+
     int poz=-1;
     for(int i=0; i<n-1; i++)
     {
@@ -91,8 +97,9 @@ void solutiep()
 
 void solutiee()
 {
-    int v[100][100],n,m;
-    citireMatrice(v,n,m);
+    int v[100][100]={{11,32,12},{12,5,14},{22,12,64},{32,25,64}};
+    int n=4;
+    int m=3;
     int ct=0;
     int linie=-1;
     int coloana=-1;
@@ -126,9 +133,11 @@ void solutiee()
 
 void solutief()
 {
-    int a[100][100],n,m,k;
+    int a[100][100]={{11,32,12},{12,5,14},{22,12,64},{32,25,64}};
+    int n=4;
+    int m=3;
+    int k=3;
     int poz=0;
-    citireMatrice(a,n,m);
     int minim=aparitiiCifraLinie(a,m,0,k);
     for(int i=1;i<n;i++)
     {
@@ -145,11 +154,12 @@ void solutief()
 
 void solutieg()
 {
-    int a[100][100],n,m;
+    int a[100][100]={{11,33,12},{12,5,14},{22,12,64},{32,25,64}};
+    int n=4;
+    int m=3;
     int linie=0;
     int coloana=0;
     int frecventaMaxima;
-    citireMatrice(a,n,m);
     frecventaMaxima=frecventaElement(a,n,m,a[0][0]);
     for(int i=0;i<n;i++)
     {
@@ -171,8 +181,9 @@ void solutieg()
 
 void solutieh()
 {
-    int a[100][100],n,m;
-    citireMatrice(a,n,m);
+    int a[100][100]={{11,32,12},{12,5,14},{22,12,64},{32,25,64}};
+    int n=4;
+    int m=3;
     int i=0;
     while(i<n)
     {
@@ -191,10 +202,11 @@ void solutieh()
 
 void solutiek()
 {
-    int a[100][100],n,m;
+    int a[100][100]={{22,42,12},{12,5,14},{22,12,64},{32,25,64}};
+    int n=4;
+    int m=3;
     int poz=0;
     int maxim;
-    citireMatrice(a,n,m);
     maxim=numarPareLinie(a,m,0);
     for(int i=1;i<n;i++)
     {
@@ -215,8 +227,9 @@ void solutiek()
 }
 void solutieL()
 {
-    int a[100][100],n,m;
-    citireMatrice(a,n,m);
+    int a[100][100]={{11,32,12},{52,87,97},{22,12,64},{32,25,64}};
+    int n=4;
+    int m=3;
     int cifraMaxima=cifraMaximaMatrice(a,n,m);
     int cifraMinima=cifraMinimaMatrice(a,n,m);
     int poz=0;
@@ -240,8 +253,9 @@ void solutieL()
 
 void solutieM()
 {
-    int a[100][100],n,m;
-    citireMatrice(a,n,m);
+    int a[100][100]={{11,32,12},{52,87,97},{22,12,64},{32,25,64}};
+    int n=4;
+    int m=3;
     int j=0;
     while(j<m)
     {
@@ -266,11 +280,12 @@ void solutieM()
 
 void solutieq()
 {
-    int a[100][100],n,m;
+    int a[100][100]={{11,32,12},{52,87,97},{22,12,64},{32,25,64}};
+    int n=4;
+    int m=3;
     int minim,maxim;
     int linieMinim=0;
     int linieMaxim=0;
-    citireMatrice(a,n,m);
     minim=a[0][0];
     maxim=a[0][0];
     for(int i=0;i<n;i++)
@@ -303,8 +318,9 @@ void solutieq()
 
 void solutieR()
 {
-    int a[100][100],n,m;
-    citireMatrice(a,n,m);
+    int a[100][100]={{11,32,12},{52,87,97},{22,12,64},{32,25,64}};
+    int n=4;
+    int m=3;
     for(int i=0;i<n-1;i++)
     {
         for(int j=i+1;j<n;j++)

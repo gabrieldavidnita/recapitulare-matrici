@@ -205,14 +205,14 @@ void stergeExact3CifreEgale(int a[100][100], int &n, int &m){
         }
     }
     for(int i=0;i<n;i++){
-        if(delC[i]){
+        if(delL[i]){
             stergereLinie(a,n,m,i);
         }
     }
 
     for(int j=0;j<m;j++)
     {
-        if(delL[j])
+        if(delC[j])
         {
             stergereColoana(a,n,m,j);
         }
