@@ -497,4 +497,55 @@ void afisareChenar(int a[100][100],int n , int m,int chenar)
     }
 
 }
+
+
+void produsChenar(int a[100[100],int n , int m , int chenar)
+{
+     int i1=chenar;
+    int j1=chenar;
+    int i2=n-1-chenar;
+    int j2=m-1-chenar;
+    int produs=1;
+
+      for(int k=j1;k<=j2;k++)
+        {
+          if(a[i1][k]!=0)
+          {
+              produs*=a[i1][k];
+          }
+        }
+
+        for(int k=i1+1;k<=i2;k++)
+        {
+            {
+                if(a[k][j2]!=0)
+                {
+                    produs*=a[k][j2];
+                }
+            }
+
+        }
+    if(i1!=i2)
+    {
+        for(int k=j2-1;k>=j1;k--)
+        {
+           if(a[i2][k]!=0)
+           {
+               produs*=a[i2][k];
+           }
+        }
+    }
+    if(j1!=j2)
+    {
+        for(int k=i2-1;k>i1;k--)
+        {
+            if(a[k][j1]!=0)
+            {
+                produs*=a[k][j1];
+            }
+        }
+    }
+
+     return produs;
+}
 #endif // FUNCTII_H_INCLUDED
