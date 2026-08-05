@@ -441,11 +441,28 @@ int coloanaValidaM(int a[100][100],int n,int coloana)
 }
 
 
-
-
-
-
-
+void algoritmSpirala(int a[100][100],int n,int m)
+{
+    for(int i1=0 ,j1=0 ,i2=n-1,j2=m-1 ;i1<=i2 && j1<=j2; i1++,j1++,i2--,j2--)
+    {
+        for(int k=j1;k<=j2;k++){
+            cout<<a[i1][k]<<" ";
+        }
+        cout<<endl;
+        for(int k=i1+1;k<=i2;k++){
+            cout<<a[k][j2]<<" ";
+        }
+        cout<<endl;
+        for(int k=j2-1;k>=j1;k--){
+            cout<<a[i2][k]<<" ";
+        }
+        cout<<endl;
+        for(int k=i2-1;k>i1;k--){
+            cout<<a[k][j1]<<" ";
+        }
+        cout<<endl;
+    }
+}
 
 
 #endif // FUNCTII_H_INCLUDED

@@ -1,11 +1,11 @@
 # depslib dependency file v1.0
-1785933492 source:c:\mycode\initiere\recapitulare-matrici\main.cpp
+1785935886 source:c:\mycode\initiere\recapitulare-matrici\main.cpp
 	"solutii.h"
 
-1785933505 c:\mycode\initiere\recapitulare-matrici\solutii.h
+1785933695 c:\mycode\initiere\recapitulare-matrici\solutii.h
 	"functii.h"
 
-1785931916 c:\mycode\initiere\recapitulare-matrici\functii.h
+1785935961 c:\mycode\initiere\recapitulare-matrici\functii.h
 	<iostream>
 	<fstream>
 	<cmath>
