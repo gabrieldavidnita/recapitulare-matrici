@@ -315,10 +315,14 @@ void solutieq()
         afisareMatrice(a,n,m);
     }
 }
-
+//
 void solutieR()
 {
-    int a[100][100]={{11,32,12},{52,87,97},{22,12,64},{32,25,64}};
+    int a[100][100]={{11,32,12},
+                     {52,87,97},
+                     {22,12,64},
+                     {32,25,64}
+                     };
     int n=4;
     int m=3;
     for(int i=0;i<n-1;i++)
@@ -332,5 +336,29 @@ void solutieR()
         }
     }
     afisareMatrice(a,n,m);
+}
+
+void solutieSpirala()
+{
+int v[100][100]={{23,11,32,12},
+                 {35,52,87,97},
+                 {53,22,12,64},
+                 {64,32,25,64},
+                 {13,64,87,24}};
+int n=5;
+int m=4;
+algoritmSpirala(v,n,m);
+}
+
+void afisareC()
+{
+    int v[100][100]={{23,11,32,12},
+                 {35,52,87,97},
+                 {53,22,12,64},
+                 {64,32,25,64},
+                 {13,64,87,24}};
+int n=5;
+int m=4;
+afisareChenar(v,n,m,0);
 }
 #endif // SOLUTII_H_INCLUDED
