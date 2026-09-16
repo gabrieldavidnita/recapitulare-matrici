@@ -475,6 +475,7 @@ void afisareChenar(int a[100][100],int n , int m,int chenar)
     {
         cout<<"Nu exista ";
     }
+    return;
 
         for(int k=j1;k<=j2;k++){
             cout<<a[i1][k]<<" ";
@@ -499,9 +500,9 @@ void afisareChenar(int a[100][100],int n , int m,int chenar)
 }
 
 
-void produsChenar(int a[100[100],int n , int m , int chenar)
+int produsChenar(int a[100][100],int n , int m , int chenar)
 {
-     int i1=chenar;
+    int i1=chenar;
     int j1=chenar;
     int i2=n-1-chenar;
     int j2=m-1-chenar;
@@ -547,5 +548,40 @@ void produsChenar(int a[100[100],int n , int m , int chenar)
     }
 
      return produs;
+}
+
+
+
+int sumaChenar(int a[100][100], int n , int m , int chenar)
+{
+    int i1=chenar;
+    int j1=chenar;
+    int i2=n-1-chenar;
+    int j2=m-1-chenar;
+    int s=0;
+
+    for(int j-j1; j<=j2; j++)
+    {
+      s+=a[i1][j];
+    }
+    for(int i=i1+1; i<=i2;i++)
+       {
+            s+=a[i][j2];
+       }
+
+    if(i1!=i2)
+    {
+        for(int j=j2-1;j>=j1;j--){
+           s+=a[i2][j];
+        }
+    }
+    if(j1!=j2)
+    {
+        for(int i=i2-1;i>i1;i--){
+                s+=a[i][j1];
+
+        }
+    }
+    return s;
 }
 #endif // FUNCTII_H_INCLUDED

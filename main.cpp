@@ -1,6 +1,7 @@
 
-#include "solutii.h"
+#include "fisa2.h"
+
 int main()
 {
-afisareC();
+prob1();
 }

@@ -1,6 +1,6 @@
 # depslib dependency file v1.0
-1785937039 source:c:\mycode\initiere\recapitulare-matrici\main.cpp
-	"solutii.h"
+1789566287 source:c:\mycode\initiere\recapitulare-matrici\main.cpp
+	"fisa2.h"
 
 1785937039 c:\mycode\initiere\recapitulare-matrici\solutii.h
 	"functii.h"
@@ -9,4 +9,7 @@
 	<iostream>
 	<fstream>
 	<cmath>
+
+1789567306 c:\mycode\initiere\recapitulare-matrici\fisa2.h
+	<iostream>
 

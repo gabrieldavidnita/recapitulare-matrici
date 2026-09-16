@@ -361,4 +361,7 @@ int n=5;
 int m=4;
 afisareChenar(v,n,m,0);
 }
+
+
+
 #endif // SOLUTII_H_INCLUDED
