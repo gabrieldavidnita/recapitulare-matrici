@@ -363,5 +363,116 @@ afisareChenar(v,n,m,0);
 }
 
 
+void solutieChenarB()
+{
+    int a[100][100]=
+    {
+        {1,2,3,4,5},
+        {6,7,8,9,10},
+        {11,12,13,14,15},
+        {16,17,18,19,20}
+    };
+
+    int n=4;
+    int m=5;
+    int k;
+    cin>>k;
+
+    int nrChenare;
+    if(n<m)
+        nrChenare=n/2;
+    else
+        nrChenare=m/2;
+
+    if(k>=nrChenare)
+        cout<<"NU EXISTA";
+    else
+        cout<<primeChenar(a,n,m,k);
+}
+
+void solutieD()
+{
+    int a[100][100]=
+    {
+        {121,45,78,9},
+        {12,232,78,33},
+        {15,45,100,7}
+    };
+
+    int n=3;
+    int m=4;
+
+    for(int j=0;j<m;)
+    {
+        if(coloanaPalindrom(a,n,j))
+            stergereColoana(a,n,m,j);
+        else
+            j++;
+    }
+    afisareMatrice(a,n,m);
+}
+
+
+void solutieE()
+{
+    int a[100][100]=
+    {
+        {5,16,7,20},
+        {9,11,30,12},
+        {3,14,25,8}
+    };
+    int n=3;
+    int m=4;
+    int linie=-1;
+    int coloana=-1;
+
+    for(int i=0;i<n;i++)
+        for(int j=0;j<m;j++)
+            if(patratPerfect(a[i][j]))
+            {
+                linie=i;
+                coloana=j;
+            }
+
+    if(linie==-1)
+    {
+        cout<<"NU EXISTA";
+        return;
+    }
+
+    stergereLinie(a,n,m,linie);
+    stergereColoana(a,n,m,coloana);
+    afisareMatrice(a,n,m);
+}
+
+
+void solutieG()
+{
+    int a[100][100]=
+    {
+        {12,48,60},
+        {15,22,31},
+        {84,26,70}
+    };
+
+    int n=3;
+    int m=3;
+
+    for(int i=0;i<n;i++)
+    {
+        if(liniePara(a,m,i))
+        {
+            inserareLinie(a,n,m,i);
+            i++;
+        }
+    }
+
+    afisareMatrice(a,n,m);
+}
+
+//h)?
+//i)??
+
+//j
 
 #endif // SOLUTII_H_INCLUDED

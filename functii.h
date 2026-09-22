@@ -584,4 +584,168 @@ int sumaChenar(int a[100][100], int n , int m , int chenar)
     }
     return s;
 }
+
+
+int nrPrim(int n)
+{
+    if(n<2)
+    {
+      return 0;
+    }
+
+    for(int d=2;d*d<=n;d++)
+    {
+        if(n%d==0);
+            return 0;
+    }
+    return 1;
+}
+
+int primeChenar(int a[100][100],int n,int m,int k)
+{
+    int i1=k;
+    int j1=k;
+    int i2=n-1-k;
+    int j2=m-1-k;
+    int nr=0;
+
+    for(int j=j1;j<=j2;j++)
+    {
+      if(prim(a[i1][j]))
+         {
+                nr++;
+         }
+    }
+    for(int i=i1+1;i<=i2;i++)
+    {
+      if(prim(a[i][j2]))
+      {
+          nr++;
+      }
+
+    }
+    for(int j=j2-1;j>=j1;j--)
+    {
+        if(i1!=i2&&prim(a[i2][j]))
+        {
+           nr++;
+        }
+
+    }
+    for(int i=i2-1;i>i1;i--)
+    {
+        if(j1!=j2&&prim(a[i][j1]))
+        {
+              nr++;
+        }
+    }
+    return nr;
+}
+
+
+//c?
+//d
+
+int palindrom3(int n)
+{
+    if(n<100||n>999)
+        return 0;
+    if(n/100==n%10)
+        return 1;
+    return 0;
+}
+
+int coloanaPalindrom(int a[100][100],int n,int coloana)
+{
+    for(int i=0;i<n;i++)
+    {
+         if(palindrom3(a[i][coloana]))
+         {
+             return 1;
+         }
+    }
+    return 0;
+}
+
+
+void stergereColoana(int a[100][100],int n,int&m,int coloana)
+{
+    for(int j=coloana;j<m-1;j++)
+        for(int i=0;i<n;i++)
+            a[i][j]=a[i][j+1];
+    m--;
+}
+
+//e?
+int patratPerfect(int n)
+{
+    for(int d=0;d*d<=n;d++)
+        if(d*d==n)
+            return 1;
+    return 0;
+}
+
+void stergereLinie(int a[100][100],int &n,int m,int linie)
+{
+    for(int i=linie;i<n-1;i++)
+        for(int j=0;j<m;j++)
+            a[i][j]=a[i+1][j];
+    n--;
+}
+
+//f?
+//g
+int liniePara(int a[100][100],int m,int linie)
+{
+    for(int j=0;j<m;j++)
+        if(a[linie][j]%2!=0)
+            return 0;
+    return 1;
+}
+
+int cifraControl(int n)
+{
+    while(n>9)
+    {
+        int s=0;
+        while(n>0)
+        {
+            s=s+n%10;
+            n=n/10;
+        }
+        n=s;
+    }
+    return n;
+}
+
+void inserareLinie(int a[100][100],int &n,int m,int linie)
+{
+    for(int i=n;i>linie+1;i--)
+        for(int j=0;j<m;j++)
+            a[i][j]=a[i-1][j];
+
+    for(int j=0;j<m;j++)
+        a[linie+1][j]=cifraControl(a[linie][j]);
+
+    n++;
+}
+
+int coloanaCrescatoare(int a[100][100],int n,int coloana)
+{
+    for(int i=0;i<n-1;i++)
+        if(a[i][coloana]>=a[i+1][coloana])
+            return 0;
+    return 1;
+}
+
+int coloanaDescrescatoare(int a[100][100],int n,int coloana)
+{
+    for(int i=0;i<n-1;i++)
+        if(a[i][coloana]<=a[i+1][coloana])
+            return 0;
+    return 1;
+}
+
+
+
 #endif // FUNCTII_H_INCLUDED
