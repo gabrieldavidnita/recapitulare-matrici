@@ -560,7 +560,7 @@ int sumaChenar(int a[100][100], int n , int m , int chenar)
     int j2=m-1-chenar;
     int s=0;
 
-    for(int j-j1; j<=j2; j++)
+    for(int j=j1; j<=j2; j++)
     {
       s+=a[i1][j];
     }
@@ -569,13 +569,12 @@ int sumaChenar(int a[100][100], int n , int m , int chenar)
             s+=a[i][j2];
        }
 
-    if(i1!=i2)
     {
         for(int j=j2-1;j>=j1;j--){
            s+=a[i2][j];
         }
     }
-    if(j1!=j2)
+
     {
         for(int i=i2-1;i>i1;i--){
                 s+=a[i][j1];
@@ -611,14 +610,14 @@ int primeChenar(int a[100][100],int n,int m,int k)
 
     for(int j=j1;j<=j2;j++)
     {
-      if(prim(a[i1][j]))
+      if(isNumarPrim(a[i1][j]))
          {
                 nr++;
          }
     }
     for(int i=i1+1;i<=i2;i++)
     {
-      if(prim(a[i][j2]))
+      if(isNumarPrim(a[i][j2]))
       {
           nr++;
       }
@@ -626,7 +625,7 @@ int primeChenar(int a[100][100],int n,int m,int k)
     }
     for(int j=j2-1;j>=j1;j--)
     {
-        if(i1!=i2&&prim(a[i2][j]))
+        if(i1!=i2&&isNumarPrim(a[i2][j]))
         {
            nr++;
         }
@@ -634,7 +633,7 @@ int primeChenar(int a[100][100],int n,int m,int k)
     }
     for(int i=i2-1;i>i1;i--)
     {
-        if(j1!=j2&&prim(a[i][j1]))
+        if(j1!=j2&&isNumarPrim(a[i][j1]))
         {
               nr++;
         }
@@ -668,13 +667,7 @@ int coloanaPalindrom(int a[100][100],int n,int coloana)
 }
 
 
-void stergereColoana(int a[100][100],int n,int&m,int coloana)
-{
-    for(int j=coloana;j<m-1;j++)
-        for(int i=0;i<n;i++)
-            a[i][j]=a[i][j+1];
-    m--;
-}
+
 
 //e?
 int patratPerfect(int n)
@@ -685,13 +678,6 @@ int patratPerfect(int n)
     return 0;
 }
 
-void stergereLinie(int a[100][100],int &n,int m,int linie)
-{
-    for(int i=linie;i<n-1;i++)
-        for(int j=0;j<m;j++)
-            a[i][j]=a[i+1][j];
-    n--;
-}
 
 //f?
 //g
@@ -703,32 +689,8 @@ int liniePara(int a[100][100],int m,int linie)
     return 1;
 }
 
-int cifraControl(int n)
-{
-    while(n>9)
-    {
-        int s=0;
-        while(n>0)
-        {
-            s=s+n%10;
-            n=n/10;
-        }
-        n=s;
-    }
-    return n;
-}
 
-void inserareLinie(int a[100][100],int &n,int m,int linie)
-{
-    for(int i=n;i>linie+1;i--)
-        for(int j=0;j<m;j++)
-            a[i][j]=a[i-1][j];
 
-    for(int j=0;j<m;j++)
-        a[linie+1][j]=cifraControl(a[linie][j]);
-
-    n++;
-}
 
 int coloanaCrescatoare(int a[100][100],int n,int coloana)
 {
@@ -745,6 +707,11 @@ int coloanaDescrescatoare(int a[100][100],int n,int coloana)
             return 0;
     return 1;
 }
+
+
+//123 => 1*100 + 2*10 +3
+
+
 
 
 
