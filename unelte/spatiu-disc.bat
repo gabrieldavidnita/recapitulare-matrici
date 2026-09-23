@@ -11,7 +11,7 @@ echo   UNDE SE DUCE SPATIUL PE DISC
 echo ============================================
 echo.
 if "%ROOT%"=="" (
-  echo Se scaneaza TOATE discurile fixe.
+  echo Se scaneaza discul C:
 ) else (
   echo Se scaneaza: %ROOT%
 )
@@ -35,11 +35,11 @@ exit /b
 :::$out = New-Object System.Collections.ArrayList
 :::function Scrie($t) { [void]$out.Add($t); Write-Host $t }
 :::
-:::$discuri = Get-CimInstance Win32_LogicalDisk -Filter 'DriveType=3'
-:::if ($Root) { $tinte = @($Root) } else { $tinte = @($discuri | ForEach-Object { $_.DeviceID + '\' }) }
+:::$discuri = Get-CimInstance Win32_LogicalDisk -Filter "DeviceID='C:'"
+:::if ($Root) { $tinte = @($Root) } else { $tinte = @('C:\') }
 :::
 :::Scrie ''
-:::Scrie '=== SPATIU PE DISCURI ==='
+:::Scrie '=== SPATIU PE DISCUL C: ==='
 :::foreach ($d in $discuri) {
 :::  $tot = [double]$d.Size
 :::  $lib = [double]$d.FreeSpace
