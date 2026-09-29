@@ -475,4 +475,85 @@ void solutieG()
 
 //j
 
+
+void solutiiC()
+{
+    int a[100][100]={{11,32,12,23,53},
+                 {52,87,97,53,75},
+                 {22,12,64,98,67},
+                 {32,25,64,76,54},
+                 {45,75,35,23,53} };
+    int nrChenare;
+    if(n<m)
+    {
+        nrChenare=n/2;
+    }else
+    {
+         nrChenare=m/2;
+    }
+
+
+    int n=5;
+    int m=5;
+    int maxim=sumaChenar(a,n,m,0);
+    int grad=0;
+    for(int k=1; k<=nrChenare;k++)
+    {
+        int s=sumaChenar(a,n,m,k);
+        if(s>maxim)
+        {
+            maxim=s;
+            grad=k;
+        }
+    }
+
+}
+
+void solutieA()
+{
+    int n,m;
+    cin>>n>>m;
+
+    cout<<nrChenare(n,m);
+}
+
+void solutieB()
+{
+    int n,m,k;
+    cin>>n>>m>>k;
+
+    int nr=nrElementeChenar(n,m,k);
+
+    if(nr==-1)
+        cout<<"NU EXISTA";
+    else
+        cout<<nr;
+}
+
+void solutieC()
+{
+    int k;
+    cin>>k;
+
+    cout<<maximChenar(a,n,m,k);
+}
+void solutieD()
+{
+    int nr=nrChenare(n,m);
+    int maxim=sumaChenar(a,n,m,0);
+    int grad=0;
+
+    for(int k=1;k<nr;k++)
+    {
+        int s=sumaChenar(a,n,m,k);
+
+        if(s>maxim)
+        {
+            maxim=s;
+            grad=k;
+        }
+    }
+
+    cout<<"Chenar "<<grad<<", suma "<<maxim;
+}
 #endif // SOLUTII_H_INCLUDED

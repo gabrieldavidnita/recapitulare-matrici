@@ -711,7 +711,66 @@ int coloanaDescrescatoare(int a[100][100],int n,int coloana)
 
 //123 => 1*100 + 2*10 +3
 
+// fisa 3
+//a)
+int nrChenare(int n,int m)
+{
+    int minim;
+    if(n<m)
+        minim=n;
+    else
+        minim=m;
 
+    return (minim+1)/2;
+}
+
+//b)
+int nrElementeChenar(int n,int m,int k)
+{
+    int i1=k;
+    int j1=k;
+    int i2=n-1-k;
+    int j2=m-1-k;
+
+    if(i1>i2||j1>j2)
+        return -1;
+
+    if(i1==i2)
+        return j2-j1+1;
+
+    if(j1==j2)
+        return i2-i1+1;
+
+    return 2*(j2-j1+1)+2*(i2-i1-1);
+}
+
+//c
+int maximChenar(int a[100][100],int n,int m,int k)
+{
+    int i1=k;
+    int j1=k;
+    int i2=n-1-k;
+    int j2=m-1-k;
+    int maxim=a[i1][j1];
+
+    for(int j=j1;j<=j2;j++)
+        if(a[i1][j]>maxim)
+            maxim=a[i1][j];
+
+    for(int i=i1+1;i<=i2;i++)
+        if(a[i][j2]>maxim)
+            maxim=a[i][j2];
+
+    for(int j=j2-1;j>=j1;j--)
+        if(a[i2][j]>maxim)
+            maxim=a[i2][j];
+
+    for(int i=i2-1;i>i1;i--)
+        if(a[i][j1]>maxim)
+            maxim=a[i][j1];
+
+    return maxim;
+}
 
 
 
