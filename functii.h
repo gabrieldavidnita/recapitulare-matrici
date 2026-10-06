@@ -568,13 +568,13 @@ int sumaChenar(int a[100][100], int n , int m , int chenar)
        {
             s+=a[i][j2];
        }
-
+    if(i1!=i2)
     {
         for(int j=j2-1;j>=j1;j--){
            s+=a[i2][j];
         }
     }
-
+    if(j1!=j2)
     {
         for(int i=i2-1;i>i1;i--){
                 s+=a[i][j1];

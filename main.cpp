@@ -1,5 +1,5 @@
 
-#include "functii.h"
+#include "solutii.h"
 
 int main()
 {
